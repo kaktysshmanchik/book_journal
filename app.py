@@ -646,4 +646,16 @@ def main():
     sys.exit(app.exec())
 
 if __name__ == "__main__":
-    main()
+    import sys
+    # pick the one your code uses:
+    from PyQt6.QtWidgets import QApplication  # if you're on PyQt6
+    # from PySide6.QtWidgets import QApplication  # if you use PySide6
+
+    app = QApplication(sys.argv)
+
+    # make your main window only AFTER QApplication exists
+    win = MainWindow()        # or whatever your top-level widget class is called
+    win.show()
+
+    sys.exit(app.exec())
+
